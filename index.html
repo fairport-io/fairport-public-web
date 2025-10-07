@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fairport.io - Your Gateway to Innovation">
-    <title>Fairport.io</title>
+    <title>Fairport Networks - AI Done Your Way</title>
     <style>
         * {
             margin: 0;
@@ -16,170 +15,497 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            background: #ffffff;
         }
 
         .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            padding: 60px 40px;
-            max-width: 800px;
-            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 80px 0;
             text-align: center;
         }
 
-        .logo {
-            font-size: 3.5rem;
+        .header h1 {
+            font-size: 3.2rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .header .tagline {
+            font-size: 1.6rem;
+            opacity: 0.95;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section h2 {
+            font-size: 2.4rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .section p.intro {
+            font-size: 1.1rem;
+            color: #495057;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .services-wrapper {
+            margin-top: 40px;
+        }
+
+        .service-group {
+            margin-bottom: 50px;
+        }
+
+        .customer-label {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #6c757d;
+            font-weight: 500;
+            font-style: italic;
+            letter-spacing: 0.5px;
             margin-bottom: 20px;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            color: #2d3748;
-            margin-bottom: 20px;
-            font-weight: 600;
+        .customer-label.bottom {
+            margin-top: 20px;
+            margin-bottom: 0;
         }
 
-        .tagline {
-            font-size: 1.25rem;
-            color: #718096;
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-
-        .features {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .feature {
-            padding: 20px;
-            border-radius: 10px;
-            background: #f7fafc;
+        .service-card {
+            background: #f8f9fa;
+            padding: 35px 25px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 200px;
+            cursor: pointer;
+            position: relative;
         }
 
-        .feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
         }
 
-        .feature-title {
-            font-size: 1.2rem;
+        .service-card p {
+            color: #6c757d;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .service-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .service-card.expanded .service-details {
+            max-height: 500px;
+        }
+
+        .service-details strong {
+            display: block;
+            color: #2c3e50;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-details p {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .expand-hint {
+            font-size: 0.85rem;
+            color: #3498db;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .expertise {
+            background: #f8f9fa;
+        }
+
+        .expertise-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .approach {
+            text-align: center;
+        }
+
+        .approach-points {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            margin-top: 40px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .approach-point {
+            flex: 1;
+            padding: 20px;
+            position: relative;
+        }
+
+        .approach-point::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #3498db;
+        }
+
+        .approach-point:last-child::after {
+            content: '';
+        }
+
+        .approach-point h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .approach-point p {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        .contact {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact p {
+            color: #ecf0f1;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form label {
+            display: block;
+            text-align: left;
+            margin-bottom: 0.5rem;
+            color: #ecf0f1;
+            font-weight: 500;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.9);
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
             font-weight: 600;
-            color: #2d3748;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .contact-form button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .support-email {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .support-email p {
+            font-size: 0.95rem;
             margin-bottom: 10px;
         }
 
-        .feature-description {
-            font-size: 0.95rem;
-            color: #718096;
-        }
-
-        .cta {
-            margin-top: 50px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+        .support-email a {
+            color: #74b9ff;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            font-weight: 500;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
+        .support-email a:hover {
+            text-decoration: underline;
         }
 
-        footer {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid #e2e8f0;
-            color: #a0aec0;
-            font-size: 0.9rem;
+        .footer {
+            background: #1a1a1a;
+            color: #bdc3c7;
+            text-align: center;
+            padding: 30px 0;
         }
 
         @media (max-width: 768px) {
-            .logo {
+            .header h1 {
                 font-size: 2.5rem;
             }
 
-            h1 {
+            .header .tagline {
+                font-size: 1.3rem;
+            }
+
+            .section h2 {
                 font-size: 2rem;
             }
 
-            .tagline {
-                font-size: 1.1rem;
-            }
-
-            .container {
-                padding: 40px 25px;
-            }
-
-            .features {
+            .services-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .approach-points {
+                flex-direction: column;
+            }
+
+            .approach-point::after {
+                content: '↓';
+                right: auto;
+                top: auto;
+                bottom: -30px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .contact-form {
+                padding: 30px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">Fairport.io</div>
-        <h1>Welcome to Fairport</h1>
-        <p class="tagline">
-            Your gateway to innovation and excellence. Building the future, one solution at a time.
-        </p>
+    <header class="header">
+        <div class="container">
+            <h1>Fairport Networks</h1>
+            <p class="tagline">AI Done Your Way</p>
+            <p class="subtitle">Trusted, vendor-neutral advisory services for AI infrastructure at scale</p>
+        </div>
+    </header>
 
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">🚀</div>
-                <div class="feature-title">Fast</div>
-                <div class="feature-description">Lightning-quick performance for all your needs</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🔒</div>
-                <div class="feature-title">Secure</div>
-                <div class="feature-description">Enterprise-grade security you can trust</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">💡</div>
-                <div class="feature-title">Innovative</div>
-                <div class="feature-description">Cutting-edge solutions for modern challenges</div>
+    <section class="section">
+        <div class="container">
+            <h2>What We Do</h2>
+            <p class="intro">
+                Fairport Networks is your trusted advisor for AI infrastructure solutions. We deliver
+                hardware-agnostic guidance across the entire AI ecosystem—from developers optimizing costs
+                to datacenter providers deploying gigawatt-scale infrastructure. Our specialty: fast, reliable inference for Agentic AI.
+            </p>
+
+            <div class="services-wrapper">
+                <div class="service-group">
+                    <div class="customer-label">FOR CONSUMERS</div>
+                    <div class="services-grid">
+                        <div class="service-card" onclick="this.classList.toggle('expanded')">
+                            <h3>Developer Advisory</h3>
+                            <p>Cost and performance optimization for AI workloads. Professional sourcing of models, providers, and regional capacity. Move beyond expensive APIs with hybrid dedicated/serverless architectures.</p>
+                            <div class="expand-hint">Click for details</div>
+                            <div class="service-details">
+                                <strong>Problem:</strong>
+                                <p>Can't get a consistent SLO from your inference provider. Paying way too much sizing for peak.</p>
+                                <strong>Solution:</strong>
+                                <p>We'll find the right combination of providers to serve your workload, your way, from any region while saving costs.</p>
+                                <p style="margin-top: 1rem; font-size: 0.85rem; color: #6c757d; font-style: italic;">Private client: $25B publicly traded data provider</p>
+                            </div>
+                        </div>
+
+                        <div class="service-card" onclick="this.classList.toggle('expanded')">
+                            <h3>Enterprise AI Agents</h3>
+                            <p>Transform business processes through intelligent automation. From IT monitoring and incident response to custom workflow automation that delivers measurable operational improvements.</p>
+                            <div class="expand-hint">Click for details</div>
+                            <div class="service-details">
+                                <strong>Problem:</strong>
+                                <p>Large enterprises have siloed large investments in IT tooling. No one has a consolidated intelligent picture of what's going on and a root cause.</p>
+                                <strong>Solution:</strong>
+                                <p>Let us build an Agent for you that makes sense of it all and helps you pinpoint problems before they recur.</p>
+                                <p style="margin-top: 1rem; font-size: 0.85rem; color: #6c757d; font-style: italic;">Private client: Global hospitality leader</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-group">
+                    <div class="services-grid">
+                        <div class="service-card" onclick="this.classList.toggle('expanded')">
+                            <h3>Hosting Provider Enablement</h3>
+                            <p>Level up datacenter operators to compete with major cloud providers. NVIDIA-certified infrastructure, proper cooling design, HA networking, security frameworks, and compliance guidance.</p>
+                            <div class="expand-hint">Click for details</div>
+                            <div class="service-details">
+                                <strong>Problem:</strong>
+                                <p>Stuck at hosting GPUs wholesale and needing to expand to more customers. Inference customers.</p>
+                                <strong>Solution:</strong>
+                                <p>We'll accelerate your time to market, get you certified, and increase the utilization and revenue of your assets.</p>
+                                <p style="margin-top: 1rem; font-size: 0.85rem; color: #6c757d; font-style: italic;">Private client: 100+ MW neocloud (EU/US)</p>
+                            </div>
+                        </div>
+
+                        <div class="service-card" onclick="this.classList.toggle('expanded')">
+                            <h3>Hardware VAR Services</h3>
+                            <p>Independent benchmarking and competitive analysis for AI hardware vendors. Installation, integration, and managed services for datacenter providers and end customers.</p>
+                            <div class="expand-hint">Click for details</div>
+                            <div class="service-details">
+                                <strong>Problem:</strong>
+                                <p>New AI hardware needs proven differentiation. Generic demos don't showcase where you outperform, and adoption is slow without clear workload advantages and deployment automation.</p>
+                                <strong>Solution:</strong>
+                                <p>We'll benchmark your strengths, identify your ideal workloads, help you position as a high-performance alternative (not just cheaper), and provide turnkey deployment automation with managed services.</p>
+                                <p style="margin-top: 1rem; font-size: 0.85rem; color: #6c757d; font-style: italic;">Private client: Novel inference hardware specialists</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="customer-label bottom">FOR PROVIDERS</div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="cta">
-            <a href="#contact" class="cta-button">Get Started</a>
+    <section class="section expertise">
+        <div class="container">
+            <h2>Built on Deep Experience</h2>
+            <div class="expertise-content">
+                <p class="intro">
+                    Founded by infrastructure experts who helped design and build NVIDIA GPU Cloud,
+                    NVIDIA GeForce NOW, Palo Alto Networks Wildfire, Conviva Performance Analytics,
+                    and SambaNova Cloud.
+                </p>
+            </div>
         </div>
+    </section>
 
-        <footer>
-            <p>&copy; 2024 Fairport.io. All rights reserved.</p>
-        </footer>
-    </div>
+    <section class="section approach">
+        <div class="container">
+            <h2>Our Approach</h2>
+            <p class="intro">
+                We seek to understand your unique requirements and deliver solutions that work for your specific needs,
+                budget, and scale—without vendor bias or one-size-fits-all thinking.
+            </p>
+
+            <div class="approach-points">
+                <div class="approach-point">
+                    <h3>Understand</h3>
+                    <p>Deep dive into your technical requirements, business constraints, and growth trajectory</p>
+                </div>
+                <div class="approach-point">
+                    <h3>Analyze</h3>
+                    <p>Independent benchmarking and competitive analysis across hardware and service providers</p>
+                </div>
+                <div class="approach-point">
+                    <h3>Design</h3>
+                    <p>Custom architecture recommendations optimized for your performance, cost, and reliability needs</p>
+                </div>
+                <div class="approach-point">
+                    <h3>Deliver</h3>
+                    <p>Implementation support, ongoing optimization, and managed services as needed</p>
+                </div>
+                <div class="approach-point">
+                    <h3>Operate and Autoscale</h3>
+                    <p>Negotiate capacity, automate operations, and scale globally as you grow</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact">
+        <div class="container">
+            <h2>Get Started</h2>
+            <p>Ready to optimize your AI infrastructure? Let's discuss your specific needs.</p>
+
+            <div class="contact-form">
+                <form action="https://formspree.io/f/mgvnvljo" method="POST">
+                    <label for="email">Your email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Your message:</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <button type="submit">Send</button>
+                </form>
+
+                <div class="support-email">
+                    <p>For technical support and inquiries:</p>
+                    <a href="mailto:support@fairport.io">support@fairport.io</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Fairport Networks. All rights reserved. | AI Done Your Way</p>
+        </div>
+    </footer>
 </body>
 </html>
