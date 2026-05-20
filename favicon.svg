@@ -1,0 +1,16 @@
+<svg width="110" height="110" viewBox="0 0 110 110" role="img" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .fp-mark-outer { fill: #1D428A; }
+      .fp-mark-mid { fill: #FFC72C; }
+      .fp-mark-inner { fill: #1D428A; }
+      .fp-mark-dot { fill: #FFC72C; }
+    </style>
+  </defs>
+  <g transform="translate(55, 55)">
+    <rect x="-52" y="-52" width="104" height="104" rx="6" transform="rotate(45)" class="fp-mark-outer"/>
+    <rect x="-30" y="-30" width="60" height="60" rx="3" transform="rotate(45)" class="fp-mark-mid"/>
+    <rect x="-14" y="-14" width="28" height="28" rx="2" transform="rotate(45)" class="fp-mark-inner"/>
+    <circle cx="0" cy="0" r="5" class="fp-mark-dot"/>
+  </g>
+</svg>
