@@ -638,7 +638,9 @@
             color: rgba(255,255,255,0.35);
             line-height: 1.55;
             margin: 0;
+            transition: color 0.25s;
         }
+        .pv-step:hover .pv-desc { color: rgba(255,255,255,0.82); }
 
         /* Metrics mockup */
         .metrics-grid {
@@ -847,7 +849,9 @@
             font-size: 0.875rem;
             color: rgba(255,255,255,0.35);
             line-height: 1.65;
+            transition: color 0.25s;
         }
+        .use-case-card:hover p { color: rgba(255,255,255,0.82); }
 
         @media (max-width: 768px) {
             .use-cases-grid { grid-template-columns: 1fr; }
@@ -1048,7 +1052,8 @@
             margin-bottom: 8px;
         }
 
-        .service-card p { font-size: 0.875rem; color: var(--slate-500); line-height: 1.65; }
+        .service-card p { font-size: 0.875rem; color: var(--slate-500); line-height: 1.65; transition: color 0.25s; }
+        .service-card:hover p { color: var(--slate-800); }
 
         /* ── EXPERTISE ───────────────────────────────── */
         .expertise-inner {
