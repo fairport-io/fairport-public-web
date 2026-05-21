@@ -1257,12 +1257,13 @@
         }
 
         .arch-col-center {
-            background: var(--navy);
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.18);
             border-radius: 12px;
             margin: -20px 0;
             padding: 56px 32px;
             z-index: 1;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+            box-shadow: 0 20px 40px rgba(59,130,246,0.08);
             position: relative;
         }
 
@@ -1312,11 +1313,11 @@
             line-height: 1.5;
         }
 
-        .arch-col-sub-dim { color: rgba(255,255,255,0.55); }
+        .arch-col-sub-dim { color: var(--slate-800); }
 
         .arch-cmd {
-            background: rgba(255,255,255,0.07);
-            border: 1px solid rgba(255,255,255,0.12);
+            background: var(--navy);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 6px;
             padding: 10px 14px;
             font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
@@ -1352,8 +1353,8 @@
         }
 
         .arch-items-light li {
-            color: rgba(255,255,255,0.8);
-            border-bottom-color: rgba(255,255,255,0.07);
+            color: var(--slate-800);
+            border-bottom-color: rgba(59,130,246,0.12);
         }
 
         /* ── CONNECTOR WAVE ─────────────────────────── */
@@ -1366,7 +1367,7 @@
         .conn-p2 { animation: conn-wave 1.8s ease-in-out infinite; animation-delay: 0.3s; }
         .conn-p3 { animation: conn-wave 1.8s ease-in-out infinite; animation-delay: 0.6s; }
 
-        .arch-items-light li::before { background: rgba(255,255,255,0.4); }
+        .arch-items-light li::before { background: rgba(59,130,246,0.5); }
 
         /* ── RESPONSIVE ──────────────────────────────── */
         @media (max-width: 900px) {
