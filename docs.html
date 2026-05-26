@@ -102,6 +102,26 @@
 
         .nav-cta:hover { background: var(--blue-dark) !important; }
 
+        /* ── HAMBURGER / MOBILE DRAWER ───────────────── */
+        .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 4px; border-radius: 6px; transition: background 0.2s; }
+        .hamburger:hover { background: var(--slate-100); }
+        .hamburger span { display: block; height: 2px; background: var(--slate-700); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .nav-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+        .nav-overlay.active { opacity: 1; pointer-events: all; }
+        .mobile-nav-drawer { position: fixed; top: 0; right: 0; bottom: 0; width: 280px; background: var(--white); z-index: 201; transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); display: flex; flex-direction: column; box-shadow: -4px 0 24px rgba(0,0,0,0.15); }
+        .mobile-nav-drawer.open { transform: translateX(0); }
+        .drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 64px; border-bottom: 1px solid var(--slate-200); flex-shrink: 0; }
+        .drawer-close { width: 36px; height: 36px; background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 6px; color: var(--slate-600); font-size: 1.4rem; line-height: 1; transition: background 0.2s; }
+        .drawer-close:hover { background: var(--slate-100); }
+        .drawer-links { list-style: none; padding: 12px 0; flex: 1; }
+        .drawer-links li a { display: block; padding: 14px 24px; color: var(--slate-700); text-decoration: none; font-size: 1rem; font-weight: 500; transition: background 0.15s, color 0.15s; }
+        .drawer-links li a:hover { background: var(--slate-100); color: var(--slate-900); }
+        .drawer-links .nav-cta { margin: 12px 24px 0; text-align: center; background: var(--blue) !important; color: var(--white) !important; padding: 12px 18px; border-radius: 6px; font-weight: 600 !important; }
+        .drawer-links .nav-cta:hover { background: var(--blue-dark) !important; }
+
         /* ── PAGE HERO ───────────────────────────────── */
         .page-hero {
             background: var(--navy);
@@ -358,6 +378,7 @@
             .doc-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
+            .hamburger { display: flex; }
             .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
         }
         .construction-banner { background: #f59e0b; color: #1c1917; text-align: center; padding: 10px 20px; font-size: 0.85rem; font-weight: 500; line-height: 1.5; position: relative; z-index: 101; }
@@ -386,8 +407,27 @@
             <li><a href="https://github.com/fairport-io/fairport-io" target="_blank" rel="noopener">GitHub ↗</a></li>
             <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
         </ul>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
     </div>
 </nav>
+
+<div class="nav-overlay"></div>
+<div class="mobile-nav-drawer">
+    <div class="drawer-header">
+        <a href="index.html" class="nav-logo"><img src="fairport-logo.svg" alt="Fairport" style="height:32px;"></a>
+        <button class="drawer-close" aria-label="Close menu">&#x2715;</button>
+    </div>
+    <ul class="drawer-links">
+        <li><a href="index.html#platform">Platform</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="docs.html">Docs</a></li>
+        <li><a href="https://github.com/fairport-io/fairport-io" target="_blank" rel="noopener">GitHub ↗</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+</div>
 
 <!-- ════════════════════════════════════════════════
      PAGE HERO
@@ -527,5 +567,19 @@
     </div>
 </footer>
 
+<script>
+(function () {
+    var hamburger = document.querySelector('.hamburger');
+    var drawer    = document.querySelector('.mobile-nav-drawer');
+    var overlay   = document.querySelector('.nav-overlay');
+    if (!hamburger) return;
+    function openDrawer() { hamburger.classList.add('open'); hamburger.setAttribute('aria-expanded','true'); drawer.classList.add('open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeDrawer() { hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); drawer.classList.remove('open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
+    hamburger.addEventListener('click', openDrawer);
+    document.querySelector('.drawer-close').addEventListener('click', closeDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeDrawer); });
+})();
+</script>
 </body>
 </html>
