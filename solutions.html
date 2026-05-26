@@ -637,6 +637,10 @@
         }
         .construction-banner { background: #f59e0b; color: #1c1917; text-align: center; padding: 10px 20px; font-size: 0.85rem; font-weight: 500; line-height: 1.5; position: relative; z-index: 101; }
         .construction-banner a { color: #1c1917; font-weight: 700; text-decoration: underline; }
+
+        /* ── SCROLL REVEAL ───────────────────────────── */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
@@ -990,6 +994,29 @@
 </footer>
 
 <script>
+// scroll-reveal
+(function () {
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.section-title, .section-subtitle, .expertise-inner').forEach(function (el) {
+        el.classList.add('reveal');
+        observer.observe(el);
+    });
+
+    document.querySelectorAll('.solution-row').forEach(function (el, i) {
+        el.classList.add('reveal');
+        el.style.transitionDelay = (i * 60) + 'ms';
+        observer.observe(el);
+    });
+})();
+
 (function () {
     var hamburger = document.querySelector('.hamburger');
     var drawer    = document.querySelector('.mobile-nav-drawer');
