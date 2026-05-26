@@ -1498,7 +1498,10 @@
             .section-title { font-size: 1.9rem; }
             .feat-accordion-wrap { grid-template-columns: repeat(2, 1fr); gap: 10px; }
             .feat-item:hover .feat-overlay { transform: translateY(0); }
-            .feat-item { aspect-ratio: auto; min-height: 160px; }
+            .feat-item { aspect-ratio: auto; min-height: 240px; }
+            .feat-overlay { padding: 14px 12px; }
+            .feat-overlay h3 { font-size: 0.85rem; margin-bottom: 5px; }
+            .feat-overlay p { font-size: 0.76rem; line-height: 1.5; }
             .pv-panel       { padding: 20px; }
             .steps          { grid-template-columns: 1fr; }
             .tiers         { grid-template-columns: 1fr; }
@@ -1507,6 +1510,13 @@
             .nav-links     { display: none; }
             .hamburger     { display: flex; }
             .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+        }
+        @media (max-width: 400px) {
+            .feat-accordion-wrap { grid-template-columns: 1fr; }
+            .feat-item { min-height: 180px; }
+            .feat-overlay { padding: 16px 14px; }
+            .feat-overlay h3 { font-size: 0.9rem; }
+            .feat-overlay p { font-size: 0.8rem; }
         }
         .construction-banner { background: #f59e0b; color: #1c1917; text-align: center; padding: 10px 20px; font-size: 0.85rem; font-weight: 500; line-height: 1.5; position: relative; z-index: 101; }
         .construction-banner a { color: #1c1917; font-weight: 700; text-decoration: underline; }
