@@ -1510,6 +1510,24 @@
         }
         .construction-banner { background: #f59e0b; color: #1c1917; text-align: center; padding: 10px 20px; font-size: 0.85rem; font-weight: 500; line-height: 1.5; position: relative; z-index: 101; }
         .construction-banner a { color: #1c1917; font-weight: 700; text-decoration: underline; }
+
+        /* ── TOUCH / TAP FIXES ────────────────────────── */
+        /* feat-item: tap-to-reveal overlay */
+        .feat-item.tapped .feat-icon-lg { transform: scale(1.08); }
+        .feat-item.tapped .feat-label   { opacity: 0; }
+        .feat-item.tapped .feat-overlay { transform: translateY(0); }
+
+        /* on touch devices: always show bright state for text elements */
+        @media (hover: none) and (pointer: coarse) {
+            .pv-dot                    { opacity: 1; transform: scale(1.1); }
+            .pv-badge                  { opacity: 1; }
+            .pv-desc                   { color: rgba(255,255,255,0.82); }
+            .pv-step-title h4          { color: rgba(255,255,255,0.97); }
+            .use-case-card .use-case-icon { opacity: 1; }
+            .use-case-card h3          { color: rgba(255,255,255,0.97); }
+            .use-case-card p           { color: rgba(255,255,255,0.82); }
+            .service-card p            { color: var(--slate-800); }
+        }
     </style>
 </head>
 <body>
@@ -2247,6 +2265,26 @@
 </script>
 
 <script>
+// feat-item tap-to-toggle on touch devices
+(function () {
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+        var featItems = document.querySelectorAll('.feat-item');
+        featItems.forEach(function (item) {
+            item.addEventListener('touchend', function (e) {
+                e.preventDefault();
+                var isOpen = item.classList.contains('tapped');
+                featItems.forEach(function (i) { i.classList.remove('tapped'); });
+                if (!isOpen) item.classList.add('tapped');
+            });
+        });
+        document.addEventListener('touchend', function (e) {
+            if (!e.target.closest('.feat-item')) {
+                featItems.forEach(function (i) { i.classList.remove('tapped'); });
+            }
+        });
+    }
+})();
+
 (function () {
     var hamburger = document.querySelector('.hamburger');
     var drawer    = document.querySelector('.mobile-nav-drawer');
