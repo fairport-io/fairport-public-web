@@ -1575,6 +1575,22 @@
             .service-card p            { color: var(--slate-800); }
         }
 
+        /* ── SKIP LINK ───────────────────────────────── */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 8px;
+            z-index: 9999;
+            background: var(--blue);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 0 0 6px 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .skip-link:focus { top: 0; }
+
         /* ── FOCUS STYLES ────────────────────────────── */
         :focus-visible {
             outline: 2px solid var(--blue);
@@ -1599,6 +1615,8 @@
     </style>
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <div class="construction-banner">
     This website is under construction — information may not be accurate yet. Please <a href="/#contact">use the contact form</a> for more information.
@@ -1645,7 +1663,7 @@
 <!-- ════════════════════════════════════════════════
      HERO
 ════════════════════════════════════════════════ -->
-<section class="hero">
+<section class="hero" id="main-content">
     <div class="container">
         <div class="hero-badge">✦ Now Open Source</div>
         <h1>Deploy Your AI Stack<br>in Minutes</h1>

@@ -642,6 +642,22 @@
         .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
+        /* ── SKIP LINK ───────────────────────────────── */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 8px;
+            z-index: 9999;
+            background: var(--blue);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 0 0 6px 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .skip-link:focus { top: 0; }
+
         /* ── FOCUS STYLES ────────────────────────────── */
         :focus-visible {
             outline: 2px solid var(--blue);
@@ -665,6 +681,8 @@
     </style>
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <div class="construction-banner">
     This website is under construction — information may not be accurate yet. Please <a href="/#contact">use the contact form</a> for more information.
@@ -711,7 +729,7 @@
 <!-- ════════════════════════════════════════════════
      PAGE HERO
 ════════════════════════════════════════════════ -->
-<div class="page-hero">
+<div class="page-hero" id="main-content">
     <span class="page-hero-badge">Solutions</span>
     <h1>AI infrastructure built for the way you work</h1>
     <p>From cutting inference costs to standing up a datacenter, we meet you where you are and build what you need.</p>
