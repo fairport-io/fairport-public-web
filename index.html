@@ -1574,6 +1574,28 @@
             .use-case-card p           { color: rgba(255,255,255,0.82); }
             .service-card p            { color: var(--slate-800); }
         }
+
+        /* ── FOCUS STYLES ────────────────────────────── */
+        :focus-visible {
+            outline: 2px solid var(--blue);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+        .doc-card:focus-visible,
+        .hamburger:focus-visible,
+        .drawer-close:focus-visible {
+            outline: 2px solid #60a5fa;
+            outline-offset: 3px;
+        }
+
+        /* ── REDUCED MOTION ──────────────────────────── */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition: none !important;
+                animation: none !important;
+            }
+            .reveal { opacity: 1; transform: none; }
+        }
     </style>
 </head>
 <body>
@@ -2326,6 +2348,16 @@
         { container: '.services-grid',       items: '.service-card' },
         { container: '.steps',               items: '.step-card' }
     ];
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll(singleSelectors).forEach(function (el) { el.classList.add('reveal', 'visible'); });
+        staggerGroups.forEach(function (group) {
+            var container = document.querySelector(group.container);
+            if (!container) return;
+            container.querySelectorAll(group.items).forEach(function (el) { el.classList.add('reveal', 'visible'); });
+        });
+        return;
+    }
 
     var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
