@@ -484,14 +484,14 @@
     <div class="container">
         <span class="section-label">Quick Start</span>
         <h2 class="section-title">Up and running in one command</h2>
-        <p class="section-subtitle">Fairport installs as a single Helm chart. The installer handles all dependencies and configures everything automatically.</p>
+        <p class="section-subtitle">Fairport installs via a single command. The installer handles all dependencies and configures everything automatically.</p>
 
         <div class="install-block">
             <div class="install-cmd">
                 <span class="prompt">$</span>
                 <code>curl https://get.fairport.io | sudo bash -</code>
             </div>
-            <p class="install-note">Requires Linux with NVIDIA or AMD GPU drivers installed. See <a href="https://github.com/fairport-io/get-fairport-io#prerequisites" target="_blank" rel="noopener">prerequisites</a> before running.</p>
+            <p class="install-note">Requires Linux with a minimum of 2 CPU cores, 8GB RAM, and 100GB SSD. See the <a href="https://github.com/fairport-io/get-fairport-io" target="_blank" rel="noopener">installer repo</a> for full details before running.</p>
         </div>
     </div>
 </section>
@@ -542,13 +542,13 @@
                 <span class="doc-card-link">Open an issue <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
             </a>
 
-            <a href="https://github.com/fairport-io/fairport-io/discussions" target="_blank" rel="noopener" class="doc-card">
+            <a href="https://github.com/fairport-io/get-fairport-io#architecture" target="_blank" rel="noopener" class="doc-card">
                 <div class="doc-card-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605" /></svg>
                 </div>
-                <h3>Discussions</h3>
-                <p>Ask questions, share deployment configs, and connect with others running Fairport in production.</p>
-                <span class="doc-card-link">Join the discussion <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
+                <h3>Architecture</h3>
+                <p>Visual diagram and technical breakdown of how Fairport's components fit together, from bare metal through the AI stack.</p>
+                <span class="doc-card-link">Read on GitHub <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
             </a>
 
             <a href="https://github.com/fairport-io/fairport-io/tree/main/apps/fairport-ui" target="_blank" rel="noopener" class="doc-card">
@@ -560,13 +560,13 @@
                 <span class="doc-card-link">Read on GitHub <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
             </a>
 
-            <a href="https://github.com/fairport-io/get-fairport-io" target="_blank" rel="noopener" class="doc-card">
+            <a href="https://github.com/fairport-io/get-fairport-io#air-gap" target="_blank" rel="noopener" class="doc-card">
                 <div class="doc-card-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" /></svg>
                 </div>
-                <h3>Installer</h3>
-                <p>The one-line installer script. Source, prerequisites, and configuration options for deploying the full Fairport stack.</p>
-                <span class="doc-card-link">View on GitHub <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
+                <h3>Air-Gap Install</h3>
+                <p>Deploy Fairport in offline or restricted network environments. Covers image mirroring, private registry setup, and disconnected cluster configuration.</p>
+                <span class="doc-card-link">Read on GitHub <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
             </a>
 
             <a href="https://github.com/fairport-io" target="_blank" rel="noopener" class="doc-card">
